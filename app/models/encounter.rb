@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: encounters
+#
+#  id             :integer          not null, primary key
+#  description    :text
+#  title          :string
+#  who_is_up_type :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  campaign_id    :integer          not null
+#  who_is_up_id   :integer
+#
+# Indexes
+#
+#  index_encounters_on_campaign_id  (campaign_id)
+#  index_encounters_on_who_is_up    (who_is_up_type,who_is_up_id)
+#
+# Foreign Keys
+#
+#  campaign_id  (campaign_id => campaigns.id)
+#
 class Encounter < ApplicationRecord
   belongs_to :campaign
   belongs_to :who_is_up, polymorphic: true
