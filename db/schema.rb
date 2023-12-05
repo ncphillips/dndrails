@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_05_113219) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_140924) do
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -26,11 +26,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_113219) do
   end
 
   create_table "dungeon_masters", force: :cascade do |t|
-    t.string "name"
     t.integer "campaign_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["campaign_id"], name: "index_dungeon_masters_on_campaign_id"
+    t.index ["user_id"], name: "index_dungeon_masters_on_user_id"
   end
 
   create_table "encounters", force: :cascade do |t|
@@ -63,11 +64,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_113219) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "name"
     t.integer "campaign_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["campaign_id"], name: "index_players_on_campaign_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "status_effects", force: :cascade do |t|
@@ -108,7 +110,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_113219) do
 
   add_foreign_key "characters", "players"
   add_foreign_key "dungeon_masters", "campaigns"
+  add_foreign_key "dungeon_masters", "users"
   add_foreign_key "encounters", "campaigns"
   add_foreign_key "initiatives", "encounters"
   add_foreign_key "players", "campaigns"
+  add_foreign_key "players", "users"
 end

@@ -17,10 +17,3 @@
 #  player_id  (player_id => players.id)
 #
 
-kris:
-  name: Kris
-  player: chris
-
-shawn:
-  name: Shawn
-  player: sean

@@ -21,16 +21,3 @@
 #  campaign_id  (campaign_id => campaigns.id)
 #
 
-one:
-  title: Goblin Ambush
-  description:
-  campaign: curse_of_strahd
-  who_is_up:
-  who_is_up_type:
-
-two:
-  title: The Old Bonegrinder
-  description:
-  campaign: curse_of_strahd
-  who_is_up:
-  who_is_up_type:
