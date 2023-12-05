@@ -64,4 +64,12 @@ class CampaignsTest < ApplicationSystemTestCase
 
     assert_link "Log in"
   end
+
+  test "brent deleting a campaign" do
+    sign_in users(:brent)
+    visit campaign_url(campaigns(:curse_of_strahd))
+    click_on "Delete"
+
+    assert_text "Campaign was successfully deleted."
+  end
 end

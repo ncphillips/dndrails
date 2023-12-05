@@ -32,6 +32,12 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def destroy
+    @campaign.destroy
+    flash[:success] = "Campaign was successfully deleted."
+    redirect_to campaigns_path
+  end
+
   private
 
   def campaign_params

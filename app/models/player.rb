@@ -18,4 +18,5 @@
 #
 class Player < ApplicationRecord
   belongs_to :campaign
+  has_many :characters, dependent: :destroy
 end
