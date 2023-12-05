@@ -1,3 +1,6 @@
 <div><%= @campaign.title %></div>
 <h1>Players</h1>
-<%= render @players %>
+
+<%= turbo_frame_tag :players do %>
+  <%= render @players %>
+<% end %>

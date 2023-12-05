@@ -8,3 +8,5 @@
 <% if can? :destroy, @campaign %>
   <%= button_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
+
+<%= turbo_frame_tag :players, src: campaign_players_path(@campaign) %>
