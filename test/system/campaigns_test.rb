@@ -41,7 +41,7 @@ class CampaignsTest < ApplicationSystemTestCase
     assert_link "Sign up"
   end
 
-  test "editing a campaign" do
+  test "brent editing a campaign" do
     sign_in users(:brent)
     visit campaign_url(campaigns(:curse_of_strahd))
     click_on "Edit"
@@ -53,5 +53,15 @@ class CampaignsTest < ApplicationSystemTestCase
 
     assert_selector "h1", text: new_title
     assert_text "Campaign was successfully updated."
+  end
+
+  test "logged out user can't edit a campaign" do
+    visit campaign_url(campaigns(:curse_of_strahd))
+
+    refute_link "Edit"
+
+    visit edit_campaign_url(campaigns(:curse_of_strahd))
+
+    assert_link "Log in"
   end
 end
