@@ -29,11 +29,11 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
 
-    can :read, Campaign
 
     return unless user.present?
 
     can :create, Campaign
+    can :read, Campaign, owner: user
     can :update, Campaign, owner: user
     can :destroy, Campaign, owner: user
   end

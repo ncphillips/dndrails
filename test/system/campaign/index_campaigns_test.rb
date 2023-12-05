@@ -18,4 +18,14 @@ class IndexCampaignsTest < ApplicationSystemTestCase
       assert_link campaign.title
     end
   end
+
+  test "users cannot see other users' campaigns" do
+    sign_in users(:brent)
+
+    visit campaigns_url
+
+    users(:evan).campaigns.each do |campaign|
+      refute_link campaign.title
+    end
+  end
 end
