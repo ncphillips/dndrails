@@ -42,6 +42,12 @@ brent:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.now - 1.day %>
 
+evan:
+  name: Evan
+  email: evan@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.now - 1.day %>
+
 sean:
   name: Sean
   email: sean@test.com

@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_05_140924) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_142738) do
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_campaigns_on_owner_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -108,6 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_140924) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "campaigns", "users", column: "owner_id"
   add_foreign_key "characters", "players"
   add_foreign_key "dungeon_masters", "campaigns"
   add_foreign_key "dungeon_masters", "users"

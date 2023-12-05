@@ -11,9 +11,12 @@ class CampaignsTest < ApplicationSystemTestCase
   test "viewing a campaign" do
     sign_in users(:brent)
 
-    visit campaign_url(campaigns(:curse_of_strahd))
+    the_campaigns = campaigns(:curse_of_strahd)
 
-    assert_selector "h1", text: campaigns(:curse_of_strahd).title
+    visit campaign_url(the_campaigns)
+
+    assert_selector "h1", text: the_campaigns.title
+    assert_text the_campaigns.owner.name
   end
 
   test "brent creating a campaign" do

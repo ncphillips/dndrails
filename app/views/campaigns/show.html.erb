@@ -1,4 +1,7 @@
 <h1><%= @campaign.title %></h1>
+<p>
+  Created by: <%= @campaign.owner.name %>
+</p>
 <% if can? :update, @campaign %>
   <%= link_to "Edit", edit_campaign_path(@campaign) %>
 <% end %>
