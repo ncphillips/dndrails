@@ -13,4 +13,16 @@ class CampaignsTest < ApplicationSystemTestCase
 
     assert_selector "h1", text: campaigns(:curse_of_strahd).title
   end
+
+  test "creating a campaign" do
+    title = "The Jungle of Chult"
+    visit campaigns_url
+    click_on "New Campaign"
+
+    fill_in "Title", with: title
+    click_on "Create Campaign"
+
+    assert_selector "h1", text: title
+    assert_text "Campaign was successfully created."
+  end
 end
