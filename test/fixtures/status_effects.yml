@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rounds: 1
+  encounterable: one
+  encounterable_type: Encounterable
+
+two:
+  rounds: 1
+  encounterable: two
+  encounterable_type: Encounterable

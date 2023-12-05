@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounterable: one
+  encounter: one
+  score: 1
+
+two:
+  encounterable: two
+  encounter: two
+  score: 1
