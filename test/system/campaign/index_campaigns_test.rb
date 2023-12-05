@@ -28,4 +28,16 @@ class IndexCampaignsTest < ApplicationSystemTestCase
       refute_link campaign.title
     end
   end
+
+  test "users can see campaigns they're the DM for" do
+    new_user = User.create!(email: "test@example.com", password: "password", confirmed_at: Time.now)
+
+    DungeonMaster.create user: new_user, campaign: campaigns(:curse_of_strahd)
+
+    sign_in new_user
+
+    visit campaigns_url
+
+    assert_link campaigns(:curse_of_strahd).title
+  end
 end
