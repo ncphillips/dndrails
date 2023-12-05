@@ -46,13 +46,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_011512) do
   end
 
   create_table "initiatives", force: :cascade do |t|
+    t.string "encounterable_type", null: false
     t.integer "encounterable_id", null: false
     t.integer "encounter_id", null: false
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["encounter_id"], name: "index_initiatives_on_encounter_id"
-    t.index ["encounterable_id"], name: "index_initiatives_on_encounterable_id"
+    t.index ["encounterable_type", "encounterable_id"], name: "index_initiatives_on_encounterable"
   end
 
   create_table "monsters", force: :cascade do |t|
@@ -81,7 +82,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_011512) do
   add_foreign_key "characters", "players"
   add_foreign_key "dungeon_masters", "campaigns"
   add_foreign_key "encounters", "campaigns"
-  add_foreign_key "initiatives", "encounterables"
   add_foreign_key "initiatives", "encounters"
   add_foreign_key "players", "campaigns"
 end
