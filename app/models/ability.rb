@@ -34,7 +34,7 @@ class Ability
     return unless user.present?
 
     can :create, Campaign
-    can :update, Campaign
+    can :update, Campaign, owner: user
     can :destroy, Campaign
   end
 end
