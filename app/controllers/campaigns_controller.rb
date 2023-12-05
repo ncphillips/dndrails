@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: [:show]
+  before_action :set_campaign, only: [:show, :edit, :update]
   def index
     @campaigns = Campaign.all
   end
@@ -20,6 +20,18 @@ class CampaignsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @campaign.update(campaign_params)
+      flash[:success] = "Campaign was successfully updated."
+      redirect_to @campaign
+    else
+      render :edit
+    end
   end
 
   private

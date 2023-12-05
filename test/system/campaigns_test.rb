@@ -25,4 +25,16 @@ class CampaignsTest < ApplicationSystemTestCase
     assert_selector "h1", text: title
     assert_text "Campaign was successfully created."
   end
+
+  test "editing a campaign" do
+    new_title = "Wrath of the Righteous"
+    visit campaign_url(campaigns(:curse_of_strahd))
+    click_on "Edit"
+
+    fill_in "Title", with: new_title
+    click_on "Update Campaign"
+
+    assert_selector "h1", text: new_title
+    assert_text "Campaign was successfully updated."
+  end
 end
