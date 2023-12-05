@@ -33,7 +33,13 @@ class Ability
     return unless user.present?
 
     can :create, Campaign
-    can :read, Campaign, id: Campaign.left_joins(:dungeon_masters).where('campaigns.owner_id = ? OR dungeon_masters.user_id = ?', user.id, user.id).pluck(:id)
+    can :read,
+        Campaign,
+        id: Campaign
+              .left_joins(:dungeon_masters)
+              .left_joins(:players)
+              .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
+              .pluck(:id)
     can :update, Campaign, owner: user
     can :destroy, Campaign, owner: user
   end
