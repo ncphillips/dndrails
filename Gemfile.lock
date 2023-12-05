@@ -86,6 +86,7 @@ GEM
     bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -260,6 +261,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap
+  cancancan
   capybara
   debug
   error_highlight (>= 0.4.0)
