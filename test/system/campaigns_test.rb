@@ -72,4 +72,10 @@ class CampaignsTest < ApplicationSystemTestCase
 
     assert_text "Campaign was successfully deleted."
   end
+
+  test "logged out user can't delete a campaign" do
+    visit campaign_url(campaigns(:curse_of_strahd))
+
+    refute_button "Delete"
+  end
 end

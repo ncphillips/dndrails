@@ -2,4 +2,6 @@
 <% if can? :update, @campaign %>
   <%= link_to "Edit", edit_campaign_path(@campaign) %>
 <% end %>
-<%= button_to "Delete", @campaign, method: :delete, data: { confirm: "Are you sure?" } %>
+<% if can? :destroy, @campaign %>
+  <%= button_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
