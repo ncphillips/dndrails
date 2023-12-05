@@ -14,12 +14,3 @@
 #  index_status_effects_on_encounterable  (encounterable_type,encounterable_id)
 #
 
-one:
-  rounds: 1
-  encounterable: one
-  encounterable_type: Encounterable
-
-two:
-  rounds: 1
-  encounterable: two
-  encounterable_type: Encounterable

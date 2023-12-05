@@ -8,4 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Campaign < ApplicationRecord
+  def to_s
+    title
+  end
 end

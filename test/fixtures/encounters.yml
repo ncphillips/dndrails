@@ -22,15 +22,15 @@
 #
 
 one:
-  title: MyString
-  description: MyText
-  campaign: one
-  who_is_up: one
-  who_is_up_type: Who is up
+  title: Goblin Ambush
+  description:
+  campaign: curse_of_strahd
+  who_is_up:
+  who_is_up_type:
 
 two:
-  title: MyString
-  description: MyText
-  campaign: two
-  who_is_up: two
-  who_is_up_type: Who is up
+  title: The Old Bonegrinder
+  description:
+  campaign: curse_of_strahd
+  who_is_up:
+  who_is_up_type:

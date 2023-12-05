@@ -8,8 +8,17 @@
 #  updated_at :datetime         not null
 #
 
-one:
-  name: MyString
+goblin:
+  name: Goblin
 
-two:
-  name: MyString
+ogre:
+  name: Ogre
+
+troll:
+  name: Troll
+
+mind_flayer:
+  name: Mind Flayer
+
+beholder:
+  name: Beholder

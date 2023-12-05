@@ -5,11 +5,12 @@ class CampaignsTest < ApplicationSystemTestCase
     visit campaigns_url
 
     assert_selector "h1", text: "Campaigns"
+    assert_link campaigns(:curse_of_strahd).title
   end
 
   test "viewing a campaign" do
-    visit campaign_url(campaigns(:one))
+    visit campaign_url(campaigns(:curse_of_strahd))
 
-    assert_selector "h1", text: campaigns(:one).title
+    assert_selector "h1", text: campaigns(:curse_of_strahd).title
   end
 end

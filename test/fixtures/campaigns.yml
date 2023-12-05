@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-one:
-  title: MyString
+curse_of_strahd:
+  title: Curse of Strahd
 
-two:
-  title: MyString
+mountain_of_madness:
+  title: Mountain of Madness

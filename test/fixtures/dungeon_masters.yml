@@ -17,10 +17,10 @@
 #  campaign_id  (campaign_id => campaigns.id)
 #
 
-one:
-  name: MyString
-  campaign: one
+curse_of_strahd_dm:
+  name: Brent
+  campaign: curse_of_strahd
 
-two:
-  name: MyString
-  campaign: two
+mountain_of_madness_dm:
+  name: Evan
+  campaign: mountain_of_madness
