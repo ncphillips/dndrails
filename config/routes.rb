@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :campaigns
 
   devise_for :users
+
+  root to: "campaigns#index"
 end

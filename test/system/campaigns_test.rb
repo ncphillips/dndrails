@@ -9,17 +9,21 @@ class CampaignsTest < ApplicationSystemTestCase
   end
 
   test "viewing a campaign" do
+    sign_in users(:brent)
+
     visit campaign_url(campaigns(:curse_of_strahd))
 
     assert_selector "h1", text: campaigns(:curse_of_strahd).title
   end
 
   test "brent creating a campaign" do
-    title = "The Jungle of Chult"
-    login_as users(:brent)
+    sign_in users(:brent)
 
     visit campaigns_url
+
     click_on "New Campaign"
+
+    title = "The Jungle of Chult"
 
     fill_in "Title", with: title
     click_on "Create Campaign"
@@ -28,10 +32,21 @@ class CampaignsTest < ApplicationSystemTestCase
     assert_text "Campaign was successfully created."
   end
 
+  test "logged out user can't create a campaign" do
+    visit campaigns_url
+
+    refute_link "New Campaign"
+
+    assert_link "Log in"
+    assert_link "Sign up"
+  end
+
   test "editing a campaign" do
-    new_title = "Wrath of the Righteous"
+    sign_in users(:brent)
     visit campaign_url(campaigns(:curse_of_strahd))
     click_on "Edit"
+
+    new_title = "Wrath of the Righteous"
 
     fill_in "Title", with: new_title
     click_on "Update Campaign"
