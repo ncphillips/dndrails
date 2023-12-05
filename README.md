@@ -1,24 +1,70 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODO
 
-Things you may want to cover:
+### Campaigns
+- [x] Create
+- [x] Read
+- [x] Update
+- [x] Delete
 
-* Ruby version
+### Characters
+- [ ] Create
+- [ ] Read
+- [ ] Update
+- [ ] Delete
 
-* System dependencies
+### Encounters
+- [ ] Create
+- [ ] Read
+- [ ] Update
+- [ ] Delete
+- [ ] Add Character
+- [ ] Remove Character
+- [ ] Add Monster
+- [ ] Remove Monster
 
-* Configuration
+### Running Encounters
+- [ ] Display Initiative Order
+- [ ] Roll initiative
+- [ ] Who's turn is it?
+- [ ] Next turn
+- [ ] Previous turn
+- [ ] What round is it?
+- [ ] Incrementing round automatically
+- [ ] Notifying players that it's their turn
+- [ ] Notifying players that they're on deck
 
-* Database creation
+## Items
+- [ ] List
+- [ ] Create
+- [ ] Read
+- [ ] Update
+- [ ] Delete
+- [ ] Homebrew Items
 
-* Database initialization
+## Inventory
+- [ ] Party inventory
+- [ ] Adding items to inventory
+- [ ] Removing items from inventory
+- [ ] Editing an item in inventory
+- [ ] Character inventory
+- [ ] Transferring items between characters
+- [ ] Transferring items between characters and party
+- [ ] Monster inventory
 
-* How to run the test suite
+## Notetaking
+- [ ] Campaign notes
+  - [ ] List
+  - [ ] Create
+  - [ ] Read
+  - [ ] Update
+  - [ ] Delete
+  - [ ] DM's Notes (hidden from players)
+  - [ ] Handouts (visible to players)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Ending Encounters
+- [ ] End encounter
+- [ ] Calculating XP from Monsters
+- [ ] Displaying Monster's Inventory
+  - [ ] Adding monster's items to party inventory
