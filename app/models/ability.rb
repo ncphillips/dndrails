@@ -35,6 +35,6 @@ class Ability
 
     can :create, Campaign
     can :update, Campaign, owner: user
-    can :destroy, Campaign
+    can :destroy, Campaign, owner: user
   end
 end
