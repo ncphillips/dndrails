@@ -22,7 +22,6 @@ class NewCampaignsTest < ApplicationSystemTestCase
 
     refute_link "New Campaign"
 
-    assert_link "Log in"
-    assert_link "Sign up"
+    assert_unauthenticated
   end
 end

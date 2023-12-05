@@ -1,4 +1,5 @@
 class CampaignsController < ApplicationController
+  before_action :authenticate_user!
   load_resource
   authorize_resource
 

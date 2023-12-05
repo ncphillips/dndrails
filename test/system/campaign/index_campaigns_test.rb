@@ -1,7 +1,9 @@
 require "application_system_test_case"
 
 class IndexCampaignsTest < ApplicationSystemTestCase
-  test "visiting the index" do
+  test "user can see their own campaigns" do
+    sign_in users(:brent)
+
     visit campaigns_url
 
     assert_selector "h1", text: "Campaigns"

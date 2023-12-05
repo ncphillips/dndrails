@@ -34,6 +34,6 @@ class EditCampaignsTest < ApplicationSystemTestCase
 
     visit edit_campaign_url(campaigns(:curse_of_strahd))
 
-    assert_link "Log in"
+    assert_unauthenticated
   end
 end
