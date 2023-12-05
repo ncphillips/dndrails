@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # =========
   # Campaigns
   # =========
-  resources :campaigns
+  resources :campaigns do
+    resources :players, controller: "campaign_players"
+  end
 
   # ==============
   # Authentication
