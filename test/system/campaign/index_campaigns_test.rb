@@ -13,6 +13,9 @@ class IndexCampaignsTest < ApplicationSystemTestCase
     visit campaigns_url
 
     assert_selector "h1", text: "Campaigns"
-    assert_link campaigns(:curse_of_strahd).title
+
+    users(:brent).campaigns.each do |campaign|
+      assert_link campaign.title
+    end
   end
 end
