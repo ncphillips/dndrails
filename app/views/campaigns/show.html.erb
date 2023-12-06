@@ -1,12 +1,19 @@
-<h1><%= @campaign.title %></h1>
+<div class="stack horizontal gap-4 align-between">
+  <h1 class="heading lg"><%= @campaign.title %></h1>
+
+  <div class="stack horizontal gap-2 align-right">
+    <% if can? :update, @campaign %>
+      <%= link_to "Edit", edit_campaign_path(@campaign), class: "btn secondary md w-fit" %>
+    <% end %>
+    <% if can? :destroy, @campaign %>
+      <%= button_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"}, class: "btn danger md" %>
+    <% end %>
+  </div>
+</div>
+
 <p>
   Created by: <%= @campaign.owner.name %>
 </p>
-<% if can? :update, @campaign %>
-  <%= link_to "Edit", edit_campaign_path(@campaign) %>
-<% end %>
-<% if can? :destroy, @campaign %>
-  <%= button_to "Delete", @campaign, method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
 
+<h2 class="heading md">Players</h2>
 <%= turbo_frame_tag :players, src: campaign_players_path(@campaign) %>

@@ -2,12 +2,12 @@
   <ul class="stack horizontal gap-4 w-full align-left">
     <li><%= link_to "D&D on Rails", root_path, class: "hover:underline" %></li>
     <% if current_user.present? %>
-      <li><%= link_to "Campaigns", campaigns_path, class: "hover:underline" %></li>
+      <li><%= link_to "Campaigns", campaigns_path, class: "link" %></li>
     <% end %>
   </ul>
   <ul class="stack horizontal gap-4 w-full align-right">
     <% if current_user.present? %>
-      <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "hover:underline" %></li>
+      <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %></li>
     <% else %>
       <li class="justify-self-end"><%= link_to "Sign Up", new_user_registration_path, class: "call-to-action" %></li>
       <li class="justify-self-end"><%= link_to "Sign In", new_user_session_path, class: "secondary-action" %></li>

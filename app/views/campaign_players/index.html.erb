@@ -3,4 +3,7 @@
 
 <%= turbo_frame_tag :players do %>
   <%= render @players %>
+  <% if @players.empty? %>
+    <p class="text-gray-500">No players yet.</p>
+  <% end %>
 <% end %>
