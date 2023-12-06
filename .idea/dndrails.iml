@@ -66,6 +66,8 @@
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.6.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.10.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.11.5, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="launchy (v2.5.2, RVM: ruby-3.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="letter_opener (v1.8.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, RVM: ruby-3.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, RVM: ruby-3.1.2) [gem]" level="application" />
@@ -474,6 +476,7 @@
                   <RakeTaskImpl description="" fullCommand="tmp:cache:clear" id="clear" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="tmp:letter_opener" id="letter_opener" />
               <RakeTaskImpl id="pids">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="tmp:pids:clear" id="clear" />
