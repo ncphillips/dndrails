@@ -1,13 +1,246 @@
+/*
+ * Example of a custom font family import; must be at top of file because CSS sucks
+ * @import url('https://fonts.googleapis.com/css2?family=Changa+One&display=swap');
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
+@layer utilities {
+  /*
+   * Example of a custom font family utility class
+   * relevant to above @import
+   *
+   * .font-changa {
+   *   font-family: 'Changa One', cursive;
+   * }
+  */
+}
 
+/**
+ * Headings
+ */
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .heading {
+    @apply font-bold text-2xl tracking-tight;
+  }
+
+  .heading.sm {
+    @apply text-xl;
+  }
+
+  .heading.md {
+    /*  */
+  }
+
+  .heading.lg {
+    @apply text-3xl;
+  }
+
+  .heading.xl {
+    @apply text-4xl;
+  }
+
+  .heading.xxl {
+    @apply text-5xl;
   }
 }
 
-*/
+/**
+ * Button Component Layers
+ */
+@layer components {
+  .btn {
+    @apply rounded-md border text-center block;
+  }
+
+  .btn.sm {
+    @apply px-3 py-1 text-sm;
+  }
+
+  .btn.md {
+    @apply px-4 py-1 text-base;
+  }
+
+  .btn.lg {
+    @apply px-5 py-2 text-lg;
+  }
+
+  .btn.xl {
+    @apply px-6 py-3 text-xl;
+  }
+
+  .btn.xxl {
+    @apply px-7 py-4 text-2xl;
+  }
+
+  .btn.primary {
+    @apply text-white bg-black border-black hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700;
+  }
+
+  .btn.secondary {
+    @apply text-black bg-white border-black hover:bg-gray-100 active:bg-gray-200;
+  }
+
+  .btn.ghost {
+    @apply flex justify-center items-center text-black border-transparent underline;
+  }
+
+  .btn.danger {
+    @apply text-white bg-red-700 border border-red-950 hover:bg-red-800 active:bg-red-900;
+  }
+
+  .btn.disabled {
+    @apply pointer-events-none;
+  }
+
+}
+
+/**
+ * Input Component Layers
+ */
+@layer components {
+  .form-container {
+    @apply stack flex-col gap-6 w-full max-w-[468px];
+  }
+
+  .field {
+    @apply flex flex-col gap-2 w-full;
+  }
+
+  .field .description {
+    @apply text-sm text-gray-800 italic;
+  }
+
+  .field > .hint {
+    @apply text-sm text-gray-800 italic;
+  }
+
+  .input {
+    @apply rounded-md bg-gray-50;
+  }
+}
+
+/**
+ * Links
+ */
+@layer components {
+  .link {
+    @apply underline decoration-[0.75px];
+  }
+
+}
+
+/**
+ * Card Component Layers
+ */
+@layer components {
+  .card {
+    @apply block bg-white border border-slate-700 rounded-md shadow-md;
+  }
+
+  .card.padded {
+    @apply p-4;
+  }
+}
+
+/**
+ * Stack Component Layers
+ */
+@layer components {
+  .stack {
+    @apply flex;
+  }
+
+  .stack.vertical {
+    @apply flex-col;
+  }
+
+  .stack.horizontal {
+    @apply flex-row;
+  }
+
+  .stack.horizontal.align-left {
+    @apply justify-start;
+  }
+
+  .stack.horizontal.align-center {
+    @apply justify-center;
+  }
+
+  .stack.horizontal.align-right {
+    @apply justify-end;
+  }
+
+  .stack.horizontal.align-between {
+    @apply justify-between;
+  }
+
+  .stack.vertical.align-left {
+    @apply items-start;
+  }
+
+  .stack.vertical.align-center {
+    @apply items-center;
+  }
+
+  .stack.vertical.align-right {
+    @apply items-end;
+  }
+
+  .stack.horizontal.valign-top {
+    @apply items-start;
+  }
+
+  .stack.horizontal.valign-center {
+    @apply items-center;
+  }
+
+  .stack.horizontal.valign-bottom {
+    @apply items-end;
+  }
+
+  .stack.vertical.valign-top {
+    @apply justify-start;
+  }
+
+  .stack.vertical.valign-center {
+    @apply justify-center;
+  }
+
+  .stack.vertical.valign-bottom {
+    @apply justify-end;
+  }
+
+  .stack.vertical.valign-between {
+    @apply justify-between;
+  }
+}
+
+/**
+ * Fieldset
+ */
+@layer components {
+  .fieldset {
+    @apply flex flex-col gap-5;
+  }
+}
+
+/**
+ * Page Block
+ */
+@layer components {
+  .page-block {
+    @apply flex flex-col block w-full p-4 md:max-w-7xl md:mx-auto;
+  }
+}
+
+
+details > summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+

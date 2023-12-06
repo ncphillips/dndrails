@@ -1,5 +1,3 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>">
-    <%= message %>
-  </div>
+  <%= render "shared/alert", message: message, type: message_type %>
 <% end %>
