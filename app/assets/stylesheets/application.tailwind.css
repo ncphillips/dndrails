@@ -118,6 +118,10 @@
     @apply flex flex-col gap-2 w-full;
   }
 
+  .field label {
+    @apply font-semibold;
+  }
+
   .field .description {
     @apply text-sm text-gray-800 italic;
   }

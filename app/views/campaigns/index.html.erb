@@ -1,5 +1,7 @@
-<h1 class="heading lg">Campaigns</h1>
-<% if can? :create, Campaign %>
-  <%= link_to "New Campaign", new_campaign_path, class: "btn primary lg" %>
-<% end %>
+<div class="stack horizontal gap-4 align-between">
+  <h1 class="heading lg">Campaigns</h1>
+  <% if can? :create, Campaign %>
+    <%= link_to "New Campaign", new_campaign_path, class: "btn primary lg" %>
+  <% end %>
+</div>
 <%= render @campaigns %>

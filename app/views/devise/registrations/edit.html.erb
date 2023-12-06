@@ -1,11 +1,16 @@
-<h2 class="heading lg">Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="heading lg">Edit Profile</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "fieldset", method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "fieldset", method: :put}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, autofocus: true, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, autocomplete: "email", class: "input" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,21 +18,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i class="description">(leave blank if you don't want to change it)</i>
     <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em class="description"><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %>
+    <i class="description">(we need your current password to confirm your changes)</i><br/>
     <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
   </div>
 
@@ -36,8 +41,8 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<section class="bg-red-50 rounded-lg border border-red-300 p-4 stack vertical gap-4">
+  <h3 class="heading md">Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { class: "link", confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+  <div class="stack horizontal gap-2">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "btn danger sm", data: {confirm: "Are you sure?", turbo_confirm: "Are you sure?"}, method: :delete %></div>
+</section>
