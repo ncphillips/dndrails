@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_05_142738) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_09_194200) do
   create_table "campaigns", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "owner_id"
+    t.integer "owner_id", null: false
     t.index ["owner_id"], name: "index_campaigns_on_owner_id"
   end
 
@@ -63,6 +63,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_142738) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "player_invites", force: :cascade do |t|
+    t.string "email"
+    t.integer "campaign_id", null: false
+    t.integer "invited_by_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_player_invites_on_campaign_id"
+    t.index ["invited_by_id"], name: "index_player_invites_on_invited_by_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -116,6 +127,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_142738) do
   add_foreign_key "dungeon_masters", "users"
   add_foreign_key "encounters", "campaigns"
   add_foreign_key "initiatives", "encounters"
+  add_foreign_key "player_invites", "campaigns"
+  add_foreign_key "player_invites", "users", column: "invited_by_id"
   add_foreign_key "players", "campaigns"
   add_foreign_key "players", "users"
 end

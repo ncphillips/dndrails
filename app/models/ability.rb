@@ -44,5 +44,6 @@ class Ability
     can :destroy, Campaign, owner: user
 
     can :read, Player
+    can :read, PlayerInvite
   end
 end

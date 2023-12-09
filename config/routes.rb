@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # =========
   resources :campaigns do
     resources :players
+    resources :player_invites
   end
 
   # ==============
