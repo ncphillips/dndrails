@@ -1,5 +1,7 @@
-<div><%= @campaign.title %></div>
-<h1>Players</h1>
+<div>
+  <div><%= @campaign.title %></div>
+  <h1 class="heading lg">Players</h1>
+</div>
 
 <%= turbo_frame_tag :players do %>
   <%= render @players %>
