@@ -13,4 +13,17 @@ class IndexPlayersTest < ApplicationSystemTestCase
       assert_text player.user.name
     end
   end
+  test "brent does not see players in from campaigns" do
+    sign_in users(:brent)
+    his_campaigns = campaigns(:curse_of_strahd)
+    other_campaign = campaigns(:mountain_of_madness)
+
+    other_campaign.players.create!(user: users(:sean))
+
+    visit campaign_players_url(his_campaigns)
+
+    other_campaign.players.each do |player|
+      assert_no_text player.user.name
+    end
+  end
 end
