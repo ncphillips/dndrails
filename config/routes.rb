@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Campaigns
   # =========
   resources :campaigns do
-    resources :players, controller: "campaign_players"
+    resources :players
   end
 
   # ==============

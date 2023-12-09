@@ -42,5 +42,7 @@ class Ability
               .pluck(:id)
     can :update, Campaign, owner: user
     can :destroy, Campaign, owner: user
+
+    can :read, Player
   end
 end
