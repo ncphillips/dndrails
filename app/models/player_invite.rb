@@ -21,7 +21,9 @@
 #  invited_by_id  (invited_by_id => users.id)
 #
 class PlayerInvite < ApplicationRecord
-  belongs_to :campaign
+  broadcasts_refreshes
+
+  belongs_to :campaign, touch: true
   belongs_to :invited_by, class_name: "User"
 
   after_create_commit :send_email

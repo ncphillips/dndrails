@@ -1,7 +1,9 @@
-<div class="page-block">
-  <h1 class="heading lg">Player Invites</h1>
-  <% if @player_invites.empty? %>
-    <p class="text-center">No invites</p>
-  <% end %>
-  <%= render @player_invites %>
-</div>
+<h1 class="heading lg">Player Invites</h1>
+<%= turbo_frame_tag :player_invites do %>
+  <ul>
+    <% if @player_invites.empty? %>
+      <p class="text-center">No invites</p>
+    <% end %>
+    <%= render @player_invites %>
+  </ul>
+<% end %>

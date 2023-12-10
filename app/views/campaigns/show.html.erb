@@ -22,4 +22,8 @@
     <%= link_to "Invite Player", new_campaign_player_invite_path(@campaign), class: "btn secondary md" %>
   </div>
   <%= turbo_frame_tag :players, src: campaign_players_path(@campaign) %>
+  <section class="">
+    <h3 class="heading sm">Pending Invites</h3>
+    <%= turbo_frame_tag :player_invites, src: campaign_player_invites_path(@campaign) %>
+  </section>
 </section>
