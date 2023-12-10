@@ -8,6 +8,10 @@
 - [x] Update
 - [x] Delete
 
+### Player Invites
+- [x] Inviting someone to be a player by email
+- [ ] Accepting an invitation
+
 ### Characters
 - [ ] Create
 - [ ] Read
