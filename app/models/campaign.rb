@@ -17,6 +17,8 @@
 #  owner_id  (owner_id => users.id)
 #
 class Campaign < ApplicationRecord
+  broadcasts_refreshes
+
   belongs_to :owner, class_name: "User"
   has_many :encounters, dependent: :destroy
   has_many :players, dependent: :destroy
