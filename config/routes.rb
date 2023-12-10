@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     resources :player_invites
   end
 
+  # ===========
+  # Invitations
+  # ===========
+  resources :invitations
+
   # ==============
   # Authentication
   # ==============

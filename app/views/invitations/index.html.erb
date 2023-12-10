@@ -1,0 +1,9 @@
+<h1>Invitations</h1>
+<ul>
+  <% @invitations.each do |invitation| %>
+    <li>
+      You've been invited to be a player in <strong><%= invitation.campaign %></strong>
+      by <%= invitation.invited_by %>
+    </li>
+  <% end %>
+</ul>
