@@ -1,11 +1,10 @@
 require "application_system_test_case"
 
 class IndexPlayerInvitesTest < ApplicationSystemTestCase
-  test "brent can see player invites for his campaign" do
-    brent = users(:brent)
-    sign_in brent
+  test "you can see player invites the campaign" do
     the_campaign = campaigns(:curse_of_strahd)
-    the_campaign.player_invites.create!(email: Faker::Internet.email, invited_by: brent)
+    the_campaign.player_invites.create!(email: Faker::Internet.email, invited_by: the_campaign.owner)
+    sign_in the_campaign.owner
 
     visit campaign_player_invites_url(the_campaign)
 
