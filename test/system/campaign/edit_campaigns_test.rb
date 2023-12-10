@@ -15,7 +15,7 @@ class EditCampaignsTest < ApplicationSystemTestCase
     assert_text "Campaign was successfully updated."
   end
 
-  test "people can't edit other people's campaigns" do
+  test "it's not found if I try to edit a campaign I'm not a part of" do
     sign_in users(:brent)
     campaigns = campaigns(:mountain_of_madness)
     visit campaign_url(campaigns)
@@ -24,7 +24,7 @@ class EditCampaignsTest < ApplicationSystemTestCase
 
     visit edit_campaign_url(campaigns)
 
-    assert_text "You are not authorized to access this page."
+    assert_not_found
   end
 
   test "logged out user can't edit a campaign" do

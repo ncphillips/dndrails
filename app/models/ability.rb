@@ -32,6 +32,12 @@ class Ability
 
     return unless user.present?
 
+    my_campaign_ids = Campaign
+                        .left_joins(:dungeon_masters)
+                        .left_joins(:players)
+                        .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
+                        .pluck(:id)
+
     can :create, Campaign
     can :read,
         Campaign,
@@ -44,6 +50,10 @@ class Ability
     can :destroy, Campaign, owner: user
 
     can :read, Player
-    can :read, PlayerInvite
+    can :read, PlayerInvite, campaign_id: Campaign
+                                            .left_joins(:dungeon_masters)
+                                            .left_joins(:players)
+                                            .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
+                                            .pluck(:id)
   end
 end

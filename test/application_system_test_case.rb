@@ -8,4 +8,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def assert_unauthenticated
     assert_text "You need to sign in or sign up before continuing."
   end
+
+  def assert_not_found
+    assert_text "The page you were looking for doesn't exist."
+  end
 end
