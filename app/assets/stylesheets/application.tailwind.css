@@ -64,32 +64,32 @@
     @apply rounded-md border text-center block;
   }
 
+  .btn.xs {
+    @apply rounded px-2 py-1 text-xs;
+  }
+
   .btn.sm {
-    @apply px-3 py-1 text-sm;
+    @apply rounded px-2 py-1 text-sm;
   }
 
   .btn.md {
-    @apply px-4 py-1 text-base;
+    @apply rounded-md px-2.5 py-1.5 text-base;
   }
 
   .btn.lg {
-    @apply px-5 py-2 text-lg;
+    @apply rounded-md px-3 py-2 text-lg;
   }
 
   .btn.xl {
-    @apply px-6 py-3 text-xl;
-  }
-
-  .btn.xxl {
-    @apply px-7 py-4 text-2xl;
+    @apply rounded-md px-3.5 py-2.5 text-xl;
   }
 
   .btn.primary {
-    @apply text-white bg-black border-black hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700;
+    @apply bg-indigo-700 font-semibold text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
   }
 
   .btn.secondary {
-    @apply text-black bg-white border-black hover:bg-gray-100 active:bg-gray-200;
+    @apply bg-white font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:block;
   }
 
   .btn.ghost {
