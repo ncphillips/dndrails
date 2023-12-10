@@ -1,6 +1,12 @@
 require "application_system_test_case"
 
 class IndexPlayerInvitesTest < ApplicationSystemTestCase
+  test "logged out users can't see player invites" do
+    the_campaign = campaigns(:curse_of_strahd)
+    visit campaign_player_invites_url(the_campaign)
+    assert_unauthenticated
+  end
+
   test "you can see player invites the campaign" do
     the_campaign = campaigns(:curse_of_strahd)
     the_campaign.player_invites.create!(email: Faker::Internet.email, invited_by: the_campaign.owner)
