@@ -24,10 +24,15 @@ class PlayerInvite < ApplicationRecord
   belongs_to :campaign
   belongs_to :invited_by, class_name: "User"
 
+  after_create_commit :send_email
 
-  enum status: { pending: "pending", cancelled: "cancelled", rejected: "rejected", accepted: "accepted" }
+  enum status: { not_sent: "not_sent", sent: "sent", cancelled: "cancelled", rejected: "rejected", accepted: "accepted" }
 
   def to_s
     email
+  end
+
+  def send_email
+    PlayerMailer.with(player_invite: self).youre_invited.deliver
   end
 end

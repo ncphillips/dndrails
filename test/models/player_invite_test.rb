@@ -23,7 +23,13 @@
 require "test_helper"
 
 class PlayerInviteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "creating an invite sends an email" do
+    assert_difference "ActionMailer::Base.deliveries.size", +1 do
+      PlayerInvite.create!(
+        email: Faker::Internet.email,
+        campaign: campaigns(:mountain_of_madness),
+        invited_by: users(:brent)
+      )
+    end
+  end
 end
