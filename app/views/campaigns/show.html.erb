@@ -16,5 +16,10 @@
   Created by: <%= @campaign.owner %>
 </p>
 
-<h2 class="heading md">Players</h2>
-<%= turbo_frame_tag :players, src: campaign_players_path(@campaign) %>
+<section class="stack vertical gap-4">
+  <div class="stack horizontal gap-3 align-between">
+    <h2 class="heading md">Players</h2>
+    <%= link_to "Invite Player", new_campaign_player_invite_path(@campaign), class: "btn secondary md" %>
+  </div>
+  <%= turbo_frame_tag :players, src: campaign_players_path(@campaign) %>
+</section>
