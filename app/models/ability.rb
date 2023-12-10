@@ -38,23 +38,25 @@ class Ability
                         .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
                         .pluck(:id)
 
+    # =========
+    # Campaigns
+    # =========
     can :create, Campaign
     can :read,
         Campaign,
-        id: Campaign
-              .left_joins(:dungeon_masters)
-              .left_joins(:players)
-              .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
-              .pluck(:id)
+        id: my_campaign_ids
     can :update, Campaign, owner: user
     can :destroy, Campaign, owner: user
 
+    # =======
+    # Players
+    # =======
     can :read, Player
-    can :read, PlayerInvite, campaign_id: Campaign
-                                            .left_joins(:dungeon_masters)
-                                            .left_joins(:players)
-                                            .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
-                                            .pluck(:id)
+
+    # =============
+    # PlayerInvites
+    # =============
+    can :read, PlayerInvite, campaign_id: my_campaign_ids
     can :create, PlayerInvite, campaign: { owner: user }
   end
 end
