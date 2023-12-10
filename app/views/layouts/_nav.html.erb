@@ -3,6 +3,7 @@
     <li><%= link_to "D&D on Rails", root_path, class: "hover:underline" %></li>
     <% if current_user.present? %>
       <li><%= link_to "Campaigns", campaigns_path, class: "link" %></li>
+      <li><%= link_to "Invitations", invitations_path, class: "link" %></li>
     <% end %>
   </ul>
   <ul class="stack horizontal gap-4 w-full align-right">
