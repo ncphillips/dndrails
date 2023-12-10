@@ -19,6 +19,15 @@ class IndexPlayerInvitesTest < ApplicationSystemTestCase
     assert_not_found
   end
 
+  test "when there's no invites" do
+    the_campaign = campaigns(:curse_of_strahd)
+    sign_in the_campaign.owner
+
+    visit campaign_player_invites_url(the_campaign)
+
+    assert_text "No invites"
+  end
+
   test "you can see player invites the campaign" do
     the_campaign = campaigns(:curse_of_strahd)
     the_campaign.player_invites.create!(email: Faker::Internet.email, invited_by: the_campaign.owner)
@@ -26,6 +35,7 @@ class IndexPlayerInvitesTest < ApplicationSystemTestCase
 
     visit campaign_player_invites_url(the_campaign)
 
+    refute_text "No invites yet"
     the_campaign.player_invites.each do |player_invite|
       assert_text player_invite.email
     end

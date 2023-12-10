@@ -1,2 +1,7 @@
-<h1 class="heading lg">Player Invites</h1>
-<%= render @player_invites %>
+<div class="page-block">
+  <h1 class="heading lg">Player Invites</h1>
+  <% if @player_invites.empty? %>
+    <p class="text-center">No invites</p>
+  <% end %>
+  <%= render @player_invites %>
+</div>
