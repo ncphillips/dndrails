@@ -13,6 +13,18 @@ class IndexPlayersTest < ApplicationSystemTestCase
       assert_text player.user.name
     end
   end
+
+  test "when a player is added to a campaign" do
+    the_campaign = campaigns(:curse_of_strahd)
+    sign_in the_campaign.owner
+
+    visit campaign_players_url(the_campaign)
+    assert_no_text users(:evan).name
+
+    the_campaign.players.create!(user: users(:evan))
+    assert_text users(:evan).name
+  end
+
   test "brent does not see players in from campaigns" do
     sign_in users(:brent)
     his_campaigns = campaigns(:curse_of_strahd)

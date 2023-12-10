@@ -39,4 +39,8 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
 
   has_many :campaigns, foreign_key: :owner_id, dependent: :destroy
+
+  def to_s
+    name.presence || email
+  end
 end

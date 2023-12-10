@@ -20,6 +20,11 @@
 #
 class Player < ApplicationRecord
   belongs_to :user
-  belongs_to :campaign
+  belongs_to :campaign, touch: true
   has_many :characters, dependent: :destroy
+  broadcasts_refreshes
+
+  def to_s
+    user.to_s
+  end
 end
