@@ -1,0 +1,22 @@
+<%= form_with(model: [@campaign, player_invite], local: true, html: {class: "fieldset"}) do |form| %>
+  <% if player_invite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player_invite.errors.count, "error") %> prohibited this player invite from being saved:</h2>
+
+      <ul>
+        <% player_invite.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "input" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Send Invite", class: "btn primary md" %>
+  </div>
+<% end %>

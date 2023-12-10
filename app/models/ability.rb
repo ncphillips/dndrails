@@ -55,5 +55,6 @@ class Ability
                                             .left_joins(:players)
                                             .where('campaigns.owner_id = ? OR dungeon_masters.user_id = ? OR players.user_id = ?', user.id, user.id, user.id)
                                             .pluck(:id)
+    can :create, PlayerInvite, campaign: { owner: user }
   end
 end
